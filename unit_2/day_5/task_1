@@ -1,0 +1,21 @@
+//1. Write a JavaScript function to get the greatest common divisor (GCD) of two integers.
+
+function find_gcd(a,b){
+      //ensuring a is greater than b before implementing euclidean algorithm.
+      if(b > a){
+            let temp = a;
+            a = b;
+            b = temp;
+      }
+
+      // euclidean algorith
+
+      while(b !== 0){
+            let r = a % b;  
+            a = b;
+            b =r;
+      }
+      return a;
+}
+
+console.log(find_gcd(24,18));
