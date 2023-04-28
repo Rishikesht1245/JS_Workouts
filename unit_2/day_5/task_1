@@ -18,4 +18,4 @@ function find_gcd(a,b){
       return a;
 }
 
-console.log(find_gcd(24,18));
+console.log(find_gcd(12,3));
