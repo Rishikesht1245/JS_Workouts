@@ -15,11 +15,12 @@ const userReducer = (state = initialState, action) => {
         ),
       };
     case DELETE_USER:
-      return {
+      const updatedUsers =  {
         ...state,
         users: state.users.filter((user) => user.id !== action.payload),
       };
-    // There should be default state other wise it wont return any state while accessing through use selector
+      localStorage.setItem("users", JSON.stringify(updatedUsers))
+    // There should be default state other wise it wont return any state while accessing through use selector.
     default:
       return state;
   }
