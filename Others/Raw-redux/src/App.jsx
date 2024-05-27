@@ -8,7 +8,8 @@ const MOKE_API_URL = 'https://665445c21c6af63f46772c66.mockapi.io/api/v1/raw-red
 function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false)
-  const users = useSelector((state) => state.users);
+  let users = useSelector((state) => state.users);
+  if(users?.length === 0) users = JSON.parse(localStorage?.getItem("users"));
 
   const fetchUsers = async () => {
     setLoading(true);
@@ -26,7 +27,12 @@ function App() {
   };
 
   useEffect(() => {
-    fetchUsers();
+    if(!users && users?.length === 0){
+      fetchUsers();
+    }else {
+      // store in store
+      dispatch(storeUsers(users))
+    }
   }, [dispatch]);
 
   return (
