@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Req } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Request } from 'express';
 
 // @Controller is the decorator which associates classes with the required metadata.
 // @Controller()
@@ -11,9 +12,15 @@ export class AppController {
 
   // HTTP Get method decorator
   // @Get()
-  // -- specifies the endpoint as breed  : path "cats/breed"
+  // --- specifies the endpoint as breed  : path "cats/breed"
   @Get("breed")
-  getHello(): string {
-    return this.appService.getHello();
+  findAll(): string {
+    return "This method will return all cats's breed"
+  }
+
+  // --- Using Express Request Object with in the application
+  @Get("/:name")
+  findCats(@Req() request : Request): string {
+    return request.params.name;
   }
 }
