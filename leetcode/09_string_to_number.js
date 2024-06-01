@@ -17,6 +17,7 @@ var myAtoi = function(s) {
     const MAX_INT = 2 ** 31 - 1;
     // parse int will remove leading spaces and trailing letters
     // if there is leading letters then it will return NAN
+    // _ and symbols are also considered as string
     let num = parseInt(s);
     console.log(num);
     if (num){
@@ -28,5 +29,5 @@ var myAtoi = function(s) {
     return 0;
 };
 
-const str = " -123 a"
+const str = " __-123 a"
 console.log(myAtoi(str), "===number") // -123
