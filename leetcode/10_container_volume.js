@@ -23,5 +23,26 @@ var maxArea = function(height) {
     //         result = Math.max(result, area);
     //     }
     // }
+
+    // OPTIMIZED APPROACH - with COMPLEXITY n
+
+    let start = 0;
+    let end = height.length -1;
+
+    while(start < end){
+        let area = Math.min(height[start], height[end]) * (end - start);
+        result = Math.max(result, area);
+
+        if(height[start] < height[end]){
+            start++;
+        }else{
+            end--;
+        }
+    }
+
     return result
 };
+
+
+const res = maxArea([1,7,8,3,9]);
+console.log(res, "===result")
