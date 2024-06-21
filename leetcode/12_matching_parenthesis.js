@@ -9,19 +9,24 @@ var isValid = function(s) {
         "{" : "}",
         "[" : "]"
     };
+
+    const stack = [];
     
-    let isMatch = false;
-    for(let i =0; i < s.length; i+=2){
-        if(braces[s[i]] !== s[i+1]){
+   
+    for(let i =0; i < s.length; i++){
         
-            return isMatch = false;
-        }else{
+        if(braces[s[i]]){
+        
+            stack.push(s[i]);
+        
+        }else if(braces[stack.pop()] !== s[i]){
             
-        isMatch = true;
+            return false
+
         }
     }
-    return isMatch;
+    return stack.length === 0;
     
 };
 
-console.log(isValid("()"))
+console.log(isValid("({})]"))
