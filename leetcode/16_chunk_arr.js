@@ -1,12 +1,11 @@
 function chunk(arr, size) {
-    const resArr = [];
-    for (let i = 0; i < arr.length; i+=size){
+  const resArr = [];
+  for (let i = 0; i < arr.length; i += size) {
     const tempArr = [...arr];
-    resArr.push(tempArr.slice(i,i+size))
+    resArr.push(tempArr.slice(i, i + size));
+  }
+
+  return resArr;
 }
 
-return resArr;
-};
-
-
-console.log(chunk([1,2,4,5,6,7,6,8],2))
+console.log(chunk([1, 2, 4, 5, 6, 7, 6, 8], 2));
