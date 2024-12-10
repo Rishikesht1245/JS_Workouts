@@ -11,7 +11,6 @@ function isEmpty(obj) {
     // return false;
 
     // shorter way : type of array is object, on an arrya we can access the method Object.entries();
-
     return Object.entries(obj).length === 0;
 };
 
